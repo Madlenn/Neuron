@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Perceptron {
@@ -11,6 +12,10 @@ public class Perceptron {
     private double[] wagi; //tablica z wagami
     private double error; //błąd uczenia
     private int epochs; //liczba epok
+
+    public Perceptron() {
+        super();
+    }
 
     public Perceptron(double[][] in, double[] out) {
         this.in = in;
@@ -43,7 +48,6 @@ public class Perceptron {
         }
         return wgs;
     }
-
 
     public void uczenieNeuronu() {
 //przypisanie wartości początkowych epok i błędu uczenia
@@ -89,7 +93,7 @@ public class Perceptron {
     }
 
     public void printWynik() {
-//sprawdz. działania perc. poprzez podanie na wejśc. tablicy wzorcowej i porównanie wyników
+
         System.out.println("Uczenie pojedynczego perceptronu do realizacji funkcji logicznej:");
         System.out.println("Wynik neuronu | Wynik wzorcowy");
         double[] Yspr = new double[this.out.length];
@@ -103,7 +107,18 @@ public class Perceptron {
         System.out.println("");
     }
 
+    public void printWagi() {
+        System.out.println(" Współczynniki wagowe:  ");
+        System.out.println(Arrays.toString(wagi));
 
+    }
+
+    public void printError() {
+        System.out.println("Błąd uczenia " + error);
+    }
+
+    public void printEpochs() {
+        System.out.println("Liczba epok uczenia: " + epochs);
+    }
 }
-
 
